@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Menggunakan Background Gambar</title>
+    <style type="text/css">
+        body{
+            background-image: url("burung.png");
+            background-repeat: repeat-x;
+        
+        }
+    </style>
+</head>
+<body>
+    background Berulang pada sumbu X
+</body>
+</html>
