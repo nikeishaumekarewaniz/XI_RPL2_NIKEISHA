@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kesa Laundry</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5fbff;
+            color: #333;
+        }
+
+        /* NAVBAR */
+        .navbar-custom {
+            background: white;
+            padding: 18px 7%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #1683d8;
+        }
+
+        .logo span {
+            color: #42b883;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+        }
+
+        .nav-menu li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-menu li a:hover {
+            color: #1683d8;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 120px 7% 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #e7f7ff, #ffffff);
+        }
+
+        .hero-text {
+            width: 55%;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            color: #126bb0;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #42b883;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary-custom {
+            background: #1683d8;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-primary-custom:hover {
+            background: #0d68ad;
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero-image {
+            width: 40%;
+            text-align: center;
+        }
+
+        .laundry-icon {
+            width: 350px;
+            height: 350px;
+            margin: auto;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 140px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        /* SECTION */
+        .section {
+            padding: 80px 7%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title h2 {
+            color: #126bb0;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .title p {
+            color: #777;
+            margin-top: 10px;
+        }
+
+        /* LAYANAN */
+        .service-card {
+            background: white;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .service-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: #126bb0;
+            font-size: 21px;
+        }
+
+        .service-card p {
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* TENTANG */
+        .about {
+            background: #eef9ff;
+        }
+
+        .about-box {
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .about-box p {
+            color: #666;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* KEUNGGULAN */
+        .feature {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .feature-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            color: #126bb0;
+        }
+
+        .feature p {
+            color: #777;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #1683d8, #42b883);
+            text-align: center;
+            color: white;
+            padding: 80px 7%;
+        }
+
+        .cta h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn-white {
+            background: white;
+            color: #1683d8;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .btn-white:hover {
+            text-decoration: none;
+            color: #126bb0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #126bb0;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 130px;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .hero-image {
+                width: 100%;
+                margin-top: 50px;
+            }
+
+            .laundry-icon {
+                width: 250px;
+                height: 250px;
+                font-size: 100px;
+            }
+
+            .nav-menu {
+                gap: 10px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar-custom">
+    <div class="container-fluid">
+
+        <div class="row" style="display:flex; align-items:center;">
+
+            <div class="col-sm-4">
+                <div class="logo">
+                    Kesa<span>Laundry</span>
+                </div>
+            </div>
+
+            <div class="col-sm-8">
+                <ul class="nav-menu pull-right">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                    <li><a href="#layanan">Layanan</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                    <li><a href="index.php" class="login-navbar">Login</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <h1>
+            Laundry Bersih,
+            <span>Wangi & Rapi</span>
+        </h1>
+
+        <p>
+            Selamat datang di Kesa Laundry.
+            Solusi laundry praktis untuk pakaian yang
+            bersih, wangi, dan siap digunakan.
+        </p>
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="laundry-icon">
+            🧺
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TENTANG -->
+<section class="section about" id="tentang">
+
+    <div class="title">
+        <h2>Tentang Kesa Laundry</h2>
+        <p>Solusi laundry yang mudah dan praktis</p>
+    </div>
+
+    <div class="about-box">
+
+        <p>
+            Kesa Laundry merupakan layanan laundry yang membantu
+            pelanggan mendapatkan pakaian yang bersih, wangi,
+            dan rapi. Kami mengutamakan pelayanan yang praktis
+            dan nyaman bagi pelanggan.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- LAYANAN -->
+<section class="section" id="layanan">
+
+    <div class="title">
+        <h2>Layanan Kami</h2>
+        <p>Pilihan layanan Kesa Laundry</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="service-card">
+
+                <div class="service-icon">👕</div>
+
+                <h3>Laundry Kiloan</h3>
+
+                <p>
+                    Layanan cuci pakaian berdasarkan
+                    berat dengan harga terjangkau.
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="service-card">
+
+                <div class="service-icon">👔</div>
+
+                <h3>Laundry Satuan</h3>
+
+                <p>
+                    Perawatan pakaian tertentu
+                    dengan penanganan khusus.
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="service-card">
+
+                <div class="service-icon">🛏️</div>
+
+                <h3>Bed Cover</h3>
+
+                <p>
+                    Membersihkan bed cover agar
+                    tetap bersih dan nyaman.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="service-card">
+
+                <div class="service-icon">👟</div>
+
+                <h3>Cuci Sepatu</h3>
+
+                <p>
+                    Membersihkan dan merawat
+                    sepatu agar tetap bersih.
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="service-card">
+
+                <div class="service-icon">🧥</div>
+
+                <h3>Setrika</h3>
+
+                <p>
+                    Pakaian disetrika hingga rapi
+                    dan siap digunakan.
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="service-card">
+
+                <div class="service-icon">✨</div>
+
+                <h3>Perawatan Khusus</h3>
+
+                <p>
+                    Perawatan pakaian sesuai
+                    dengan kebutuhan.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- KEUNGGULAN -->
+<section class="section about">
+
+    <div class="title">
+        <h2>Kenapa kesa Laundry?</h2>
+        <p>Kemudahan untuk kebutuhan laundry Anda</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="feature">
+                <div class="feature-icon">🧼</div>
+                <h3>Bersih</h3>
+                <p>Pakaian diproses dengan memperhatikan kebersihan.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature">
+                <div class="feature-icon">🌸</div>
+                <h3>Wangi</h3>
+                <p>Pakaian terasa lebih segar dan nyaman digunakan.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Praktis</h3>
+                <p>Membantu menghemat waktu untuk mengurus pakaian.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- KONTAK -->
+<section class="section" id="kontak">
+
+    <div class="title">
+        <h2>Kontak Kami</h2>
+        <p>Hubungi Kesa Laundry</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="feature">
+                <div class="feature-icon">📍</div>
+                <h3>Alamat</h3>
+                <p>Jl. Contoh No. 10, Kendal</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h3>WhatsApp</h3>
+                <p>0812-3456-7890</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature">
+                <div class="feature-icon">🕐</div>
+                <h3>Jam Buka</h3>
+                <p>08.00 - 20.00 WIB</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+    <p>
+        © 2026 Kesa Laundry. Semua Hak Dilindungi.
+    </p>
+</footer>
+
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+
+</body>
+</html>
